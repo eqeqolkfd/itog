@@ -1,0 +1,29 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавить товар - Мебельный магазин</title>
+  <style> body{margin:0;padding:0;font-family:Arial,sans-serif;background:#f4f4f9;color:#333;}header{background:#333;color:#fff;padding:20px;text-align:center;}nav{background:#444;overflow:hidden;}nav a{float:left;display:block;padding:14px 20px;text-decoration:none;color:#f2f2f2;}nav a:hover{background:#555;}main{padding:20px;}footer{background:#333;color:#fff;text-align:center;padding:10px 0;position:fixed;width:100%;bottom:0;}</style>
+  <script>
+    function handleSubmit(e) {
+      setTimeout(function(){ location.reload(); }, 0);
+    }
+  </script>
+</head>
+<body>
+  <header><h1>Добавление товара</h1></header>
+  <nav>
+    <a href="{% url 'catalog' %}">Каталог</a>
+    <a href="{% url 'addproduct' %}">Добавление товара</a>
+  </nav>
+  <main>
+    <h2>Новый товар</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Добавить</button>
+    </form>
+  </main>
+  <footer>&copy; 2025 Мебельный магазин</footer>
+</body>
+</html>

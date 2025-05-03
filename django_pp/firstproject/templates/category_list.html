@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Список категорий{% endblock %}
+{% block content %}
+  <h2>Список всех категорий</h2>
+  <ul class="category-list">
+    {% for cat in categories %}
+      <li>
+        <a href="{% url 'category_products' cat.id %}">{{ cat.name }}</a>
+        {% if cat.description %}
+          <p class="category-description">{{ cat.description }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+    <li><a href="{% url 'add_category' %}" class="add-category">+ Добавить категорию</a></li>
+  </ul>
+  <style>
+    .category-list {
+      list-style: none;
+      padding: 0;
+    }
+    .category-list li {
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .category-list a {
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+    }
+    .category-list a:hover {
+      color: #28a745;
+    }
+    .category-description {
+      margin-top: 5px;
+      color: #666;
+    }
+    .add-category {
+      color: #007bff;
+    }
+  </style>
+{% endblock %}

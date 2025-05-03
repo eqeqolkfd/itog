@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Товары с тегом "{{ tag.name }}"{% endblock %}
+{% block content %}
+  <h2>Товары с тегом: "{{ tag.name }}"</h2>
+  <div class="product-grid">
+    {% for product in products %}
+    <div class="product-item">
+      <div class="product-image">
+        {% if product.image %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100%; max-height: 200px; object-fit: cover;">
+        {% else %}
+          <div style="background: #ddd; padding: 40px; text-align: center;">Нет изображения</div>
+        {% endif %}
+      </div>
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p><strong>Категория:</strong> {{ product.category.name }}</p>
+        <p><strong>Описание:</strong> {{ product.description|truncatechars:100 }}</p>
+        <p><strong>Цена:</strong> {{ product.price }} ₽</p>
+        <a href="{% url 'productdetail' product.pk %}" style="display:inline-block;margin-top:10px;background:#444;color:#fff;padding:8px 12px;text-decoration:none;">Подробнее</a>
+      </div>
+    </div>
+    {% empty %}
+      <p>С этим тегом пока нет товаров.</p>
+    {% endfor %}
+  </div>
+  <style>
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .product-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .product-item:hover {
+      transform: scale(1.02);
+    }
+    .product-info {
+      padding: 15px;
+    }
+  </style>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block content %}
+  <h2>{{ product.name }}</h2>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" width="300">
+  <p>{{ product.description }}</p>
+  <p>Цена: {{ product.price }} руб.</p>
+  <p>Теги:
+    {% for tag in product.tags.all %}
+      <a href="{% url 'tag_products' tag.id %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Список тегов{% endblock %}
+{% block content %}
+  <h2>Список всех тегов</h2>
+  <ul class="tag-list">
+    {% for tag in tags %}
+      <li>
+        <a href="{% url 'tag_products' tag.id %}">{{ tag.name }}</a>
+        {% if tag.description %}
+          <p class="tag-description">{{ tag.description }}</p>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>Теги отсутствуют.</li>
+    {% endfor %}
+  </ul>
+  <style>
+    .tag-list {
+      list-style: none;
+      padding: 0;
+    }
+    .tag-list li {
+      margin-bottom: 15px;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .tag-list a {
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+    }
+    .tag-list a:hover {
+      color: #007bff;
+    }
+    .tag-description {
+      margin-top: 5px;
+      color: #666;
+    }
+  </style>
+{% endblock %}

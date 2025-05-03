@@ -1,0 +1,36 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная - Мебельный магазин</title>
+  <style>
+    body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
+    header { background-color: #333; color: #fff; padding: 20px; text-align: center; }
+    nav { background-color: #444; overflow: hidden; }
+    nav a { float: left; display: block; padding: 14px 20px; text-decoration: none; color: #f2f2f2; text-align: center; }
+    nav a:hover { background-color: #555; }
+    main { padding: 20px; }
+    main h2 { margin-top: 0; }
+    footer { background-color: #333; color: #fff; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Добро пожаловать в Мебельный магазин</h1>
+    <nav>
+        <a href="{% url 'info' %}">Главная</a>
+        <a href="{% url 'catalog' %}">Каталог</a>
+        <a href="{% url 'api' %}">API</a>
+        <a href="{% url 'account' %}">Личный кабинет</a>
+        <a href="{% url 'cart' %}">Корзина</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Первая страница</h2>
+    <p>Здесь будет основной контент вашей первой страницы.</p>
+  </main>
+  <footer>
+    &copy; 2025 Мебельный магазин
+  </footer>
+</body>
+</html>
