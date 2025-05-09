@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Обратная связь {% endblock %}
+{% block content %}
+    <h2>Свяжитесь с нами</h2>
+    <form>
+      <label>Имя:<br><input type="text" name="name"></label><br><br>
+      <label>Email:<br><input type="email" name="email"></label><br><br>
+      <label>Сообщение:<br><textarea name="message"></textarea></label><br><br>
+      <button type="submit">Отправить</button>
+    </form>
+    {% endblock %}

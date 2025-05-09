@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}API{% endblock %}
+{% block content %}
+    <h2>Доступные действия</h2>
+    <ul>
+      <li>GET /api/products — Просмотр всех товаров</li>
+      <li>POST /api/products — Добавление нового товара</li>
+      <li>PUT /api/products/{id} — Редактирование товара</li>
+      <li>DELETE /api/products/{id} — Удаление товара</li>
+    </ul>
+{% endblock %}
