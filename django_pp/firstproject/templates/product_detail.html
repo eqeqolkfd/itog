@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}{{ product.name }}{% endblock %}
+
 {% block content %}
   <h2>{{ product.name }}</h2>
   <img src="{{ product.image.url }}" alt="{{ product.name }}" width="300">
@@ -10,4 +11,30 @@
       <a href="{% url 'tag_products' tag.id %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
     {% endfor %}
   </p>
+
+  <div style="margin-top: 20px;">
+    <form action="{% url 'edit_product' product.id %}" method="get" style="display: inline;">
+      <button type="submit" style="
+          background: #d0f0c0;
+          border: none;
+          padding: 6px 12px;
+          cursor: pointer;
+          border-radius: 4px;
+          font-weight: bold;
+          margin-right: 10px;
+      ">Изменить</button>
+    </form>
+
+    <form action="{% url 'delete_product' product.id %}" method="post" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit" style="
+          background: #ffcccc;
+          border: none;
+          padding: 6px 12px;
+          cursor: pointer;
+          border-radius: 4px;
+          font-weight: bold;
+      ">Удалить</button>
+    </form>
+  </div>
 {% endblock %}

@@ -1,0 +1,12 @@
+<nav>
+    <a href="{% url 'info' %}">Главная</a>
+    <a href="{% url 'catalog' %}">Каталог</a>
+    <a href="{% url 'cart' %}">Корзина</a>
+    <a href="{% url 'category_list' %}">Категория</a>
+    <a href="{% url 'tag_list' %}">Теги</a>
+    <a href="{% url 'register' %}">Регистрация</a>
+    <a href="{% url 'logout' %}">Выйти</a>
+    {% if user.is_authenticated %}
+    <p style="margin-top: 14px;">Вы вошли как: {{ user.username }}</p>
+    {% endif %}
+  </nav>

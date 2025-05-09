@@ -9,37 +9,17 @@
         {% if cat.description %}
           <p class="category-description">{{ cat.description }}</p>
         {% endif %}
+
+        <form action="{% url 'edit_category' cat.id %}" method="get" style="display:inline;">
+          <button type="submit" style="margin-left: 5px; background: #d0f0c0; border: none; padding: 4px 8px; cursor: pointer; border-radius: 4px;">Редактировать</button>
+        </form>
+
+        <form action="{% url 'delete_category' cat.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" style="margin-left: 5px; background: #ffcccc; border: none; padding: 4px 8px; cursor: pointer; border-radius: 4px;">Удалить</button>
+        </form>
       </li>
     {% endfor %}
     <li><a href="{% url 'add_category' %}" class="add-category">+ Добавить категорию</a></li>
   </ul>
-  <style>
-    .category-list {
-      list-style: none;
-      padding: 0;
-    }
-    .category-list li {
-      margin-bottom: 15px;
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .category-list a {
-      font-weight: bold;
-      font-size: 18px;
-      color: #333;
-      text-decoration: none;
-    }
-    .category-list a:hover {
-      color: #28a745;
-    }
-    .category-description {
-      margin-top: 5px;
-      color: #666;
-    }
-    .add-category {
-      color: #007bff;
-    }
-  </style>
 {% endblock %}

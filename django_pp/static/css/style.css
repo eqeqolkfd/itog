@@ -1,0 +1,123 @@
+/* Основной сброс и базовые стили */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #D8AE7E; /* бежевый фон страницы */
+  color: #333;
+}
+
+/* Обертка для контента, чтобы футер "прилипал" к низу */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Шапка */
+header {
+  background-color: #F8C794; /* светло-бежевый */
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Навигация */
+nav {
+  background-color: #FFE0B5; /* чуть темнее светло-бежевого */
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  display: block;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: #c8bca4;
+}
+
+/* Основной контент */
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #faf0e6; /* очень светлый бежевый */
+}
+
+main h2 {
+  margin-top: 0;
+}
+
+/* Сетка продуктов */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: scale(1.02);
+}
+
+.product-info {
+  padding: 15px;
+}
+
+/* Списки категорий и тегов */
+.category-list, .tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-list li, .tag-list li {
+  margin-bottom: 15px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.category-list a, .tag-list a {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+.category-list a:hover, .tag-list a:hover {
+  color: #a67c52;
+}
+
+.category-description, .tag-description {
+  margin-top: 5px;
+  color: #666;
+}
+
+/* Кнопка добавления категории */
+.add-category {
+  color: #8b5e3c;
+  text-decoration: none;
+}
+
+/* Футер */
+footer {
+  background-color: #F8C794;
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  /* плавающий внизу благодаря .wrapper */
+}

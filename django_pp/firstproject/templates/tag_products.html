@@ -24,24 +24,4 @@
       <p>С этим тегом пока нет товаров.</p>
     {% endfor %}
   </div>
-  <style>
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .product-item {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .product-item:hover {
-      transform: scale(1.02);
-    }
-    .product-info {
-      padding: 15px;
-    }
-  </style>
 {% endblock %}
